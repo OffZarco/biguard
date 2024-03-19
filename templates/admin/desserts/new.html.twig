@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Desserts 
+{% endblock %}
+
+{% block body %}
+	<section class="crud">
+		<h1>Ajouter un nouveau Dessert</h1>
+
+		{{ include('admin/components/_form.html.twig') }}
+
+		<a href="{{ path('app_admin_desserts_index') }}">
+			<i class="fa-solid fa-arrow-left"></i>
+			Retour
+		</a>
+	</section>
+{% endblock %}

@@ -1,0 +1,144 @@
+#carte {
+    padding: 80px 0;
+    background: $lightGrey;
+
+    .container {
+        margin: auto;
+        max-width: 1200px;
+    }
+
+    .section-title {
+
+        h2 {
+            font-weight: 400;
+            font-size: 38px;
+            color: $black;
+            text-align: center;
+            text-transform: uppercase;
+            position: relative;
+            margin-top: 10px;
+            margin-bottom: 15px;
+            padding-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+
+            &::after {
+                position: absolute;
+                content: "";
+                background: $pink;
+                height: 2px;
+                width: 70px;
+                bottom: 0;
+                margin-left: -35px;
+                left: 50%;
+            }
+        }
+
+        p {
+            line-height: 30px;
+            padding: 30px 0;
+
+            & span {
+                font-weight: bold;
+            }
+        }
+    }
+
+    .row {
+        display: flex;
+        justify-content: space-evenly;
+        margin: 50px 0;
+
+        .menu-section {
+            width: 500px;
+            min-height: 500px;
+            padding: 20px;
+            text-align: justify;
+            border: solid 3px $pink;
+
+            a {
+                text-decoration: none;
+                background-color: $pink;
+                color: $white;
+                padding: 5px;
+                border-radius: 5px;
+
+                &:hover {
+                    background-color: darken($pink, 5%);
+                }
+            }
+
+            h2 {
+                font-weight: 400;
+                font-size: 30px;
+                color: $black;
+                text-align: center;
+                text-transform: uppercase;
+                position: relative;
+                margin-top: 10px;
+                margin-bottom: 15px;
+                padding-bottom: 20px;
+                font-family: 'Montserrat', sans-serif;
+
+                &::after {
+                    position: absolute;
+                    content: "";
+                    background: $pink;
+                    height: 2px;
+                    width: 70px;
+                    bottom: 0;
+                    margin-left: -35px;
+                    left: 50%;
+                }
+            }
+
+            &.special {
+                background: $pink;
+                color: $white;
+                display: flex;
+                flex-direction: column;      
+
+                h2 {
+                    color: $white;
+
+                    &::after {
+                        background: $white;
+                    }
+                }
+
+                p {
+                    color: $white;
+                    padding: 25px 0;
+                }
+            }
+
+            .menu-item {
+                color: $black;
+                margin: 0;
+                padding: 10px;
+
+                .menu-item-name {
+                    font-size: 20px;
+                    margin-bottom: 10px;
+                }
+
+                .menu-item-price {
+                    float: right;
+                    margin-top: 0px;
+                    font-size: 18px;
+
+                    span {
+                        color: $pink;
+                    }
+                }
+                .menu-item-description {
+                    color: $grey;
+                    font-size: 15px;
+                    width: 85%;
+                }
+                &:nth-child(even) {
+                    background-color: $white;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,18 @@
+<nav class="navbarFixed">
+    <div class="hamburger">
+        <div class="btn bars1"></div>
+        <div class="btn bars2"></div>
+        <div class="btn bars3"></div>
+    </div>
+    <ul class="nav-links" id="link">
+        <a class="btn active" href="{{ path('app_home') }}">Accueil</a>
+        <a class="btn" href="{{ path('app_home') }}">Présentation</a>
+        <a class="btn" href="{{ path('app_home') }}">Galerie</a>
+        <a class="btn" href="{{ path('app_home') }}">Carte</a>
+        <a class="btn" href="{{ path('app_home') }}">Contact</a>
+    </ul>
+</nav>
+
+{% block javascript %}
+    <script src="{{ asset('js/navbar.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,22 @@
+<nav class="navbar">
+	<div class="hamburger">
+		<div class="bars1"></div>
+		<div class="bars2"></div>
+		<div class="bars3"></div>
+	</div>
+    <a href="#header" class="logo">Biguard <span>agency</span></a>
+		<ul class="nav-links" id="link">
+			<a class="btn active" href="#header">Accueil</a>
+			<a class="btn" href="#about">Services</a>
+			<a class="btn" href="#features">Galerie</a>
+			{# <a class="btn" href="#carte">Carte</a> #}
+			<a class="btn" href="#contact">Contact</a>
+		</ul>
+    <div class="button-nav">
+        <a href="#contact">Nous contacter</a>
+    </div>
+</nav>
+
+{% block javascript %}
+	<script src="{{ asset('js/navbar.js') }}"></script>
+{% endblock %}

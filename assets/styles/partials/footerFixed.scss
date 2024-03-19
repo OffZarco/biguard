@@ -1,0 +1,48 @@
+#footerFixed {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+
+    .container {
+        background: $black;
+        color: $grey;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 60px 0;
+
+        a {
+            color: $pink;
+            font-weight: bold;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        .social {
+
+            ul {
+                display: flex;
+
+                li {
+                    list-style: none;
+                    margin: 0 8px;
+
+                    a {
+                        color: $grey;
+
+                        i {
+                            font-size: 24px;
+                        }
+
+                        &:hover {
+                            color: $lightGrey;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

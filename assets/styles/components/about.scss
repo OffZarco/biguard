@@ -1,0 +1,99 @@
+#about {
+    padding: 0;
+    background: $lightGrey;
+
+    .container-about {
+
+        .row-about {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 80%;
+            margin: auto;
+
+            .about-img {
+                text-align: center;
+                width: 100%;
+                height: auto;
+            }
+
+            .about-text {
+                margin-left: 8.33%;
+                padding: 80px 0;
+                width: 80%;
+
+                .section-title {
+                    margin-bottom: 70px;
+
+                    h2 {
+                        font-weight: 400;
+                        font-size: 38px;
+                        color: #111;
+                        text-transform: uppercase;
+                        position: relative;
+                        margin-top: 10px;
+                        margin-bottom: 15px;
+                        padding-bottom: 20px;
+                        font-family: "Montserrat", sans-serif;
+
+                        &::after {
+                            position: absolute;
+                            content: "";
+                            background: $pink;
+                            height: 2px;
+                            width: 70px;
+                            bottom: 0;
+                            left: 0;
+                        }
+                    }
+                }
+
+                p {
+                    text-align: justify;
+                    line-height: 30px;
+                }
+            }
+        }
+
+    }
+}
+
+@media (max-width: 1000px) {
+    .container-about {
+        .row-about {
+            max-width: 100%;
+            flex-direction: column;
+
+            .about-img {
+                margin-top: 8rem;
+                width: 100%;
+                height: auto;
+
+                & img {
+                    min-width: 600px;
+                }
+            }
+
+            .about-text {
+                margin-left: 0;
+                padding: 40px 20px;
+                width: 100%;
+
+                .section-title {
+                    text-align: center;
+
+                    h2 {
+                        font-size: 28px;
+                        margin-bottom: 10px;
+                        padding-bottom: 10px;
+                    }
+                }
+
+                p {
+                    font-size: 20px;
+                    line-height: 26px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Plats index
+{% endblock %}
+
+{% block body %}
+
+	{% include "partials/navbarFixed.html.twig" %}
+
+	<section class="crud">
+		<h1>Plats index</h1>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Title</th>
+					<th>Price</th>
+					<th>Description</th>
+					<th>actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for plat in plats %}
+					<tr>
+						<td>{{ plat.id }}</td>
+						<td>{{ plat.title }}</td>
+						<td>{{ plat.price }}</td>
+						<td>{{ plat.description }}</td>
+						<td class="button">
+							{{ include('admin/plats/_delete_form.html.twig') }}
+							<a href="{{ path('app_admin_plats_edit', {'id': plat.id}) }}"><i class="fa-solid fa-pen"></i></a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="5">aucun plat n'a été trouvé</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+		<a href="{{ path('app_admin_plats_new') }}">Créer</a>
+	</section>
+{% endblock %}

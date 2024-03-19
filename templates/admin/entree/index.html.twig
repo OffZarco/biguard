@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Entree index
+{% endblock %}
+
+{% block body %}
+
+	{% include "partials/navbarFixed.html.twig" %}
+
+	<section class="crud">
+		<h1>Listes des entrées</h1>
+
+		<table class="table">
+			<thead>
+				<tr>
+					{# <th>Id</th> #}
+					<th>Titre</th>
+					<th>Description</th>
+					<th>Prix</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for entree in entrees %}
+					<tr>
+						{# <td>{{ entree.id }}</td> #}
+						<td>{{ entree.title }}</td>
+						<td>{{ entree.description }}</td>
+						<td>{{ entree.price }} €</td>
+						<td class="button">
+							{{ include('admin/entree/_delete_form.html.twig') }}
+							<a href="{{ path('app_admin_entree_edit', {'id': entree.id}) }}"><i class="fa-solid fa-pen"></i></a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="5">aucune entrée n'a été trouvé</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+		<a href="{{ path('app_admin_entree_new') }}">Créer</a>
+	</section>
+{% endblock %}

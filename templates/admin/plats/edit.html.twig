@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Plats
+{% endblock %}
+
+{% block body %}
+	<section class="crud">
+		<h1>Modifier Plat {{ plat.id }}</h1>
+
+		{{ include('admin/components/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+		<a href="{{ path('app_admin_plats_index') }}"><i class="fa-solid fa-chevron-left"></i> Retour</a>
+	</section>
+{% endblock %}

@@ -1,0 +1,47 @@
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    a,
+    button {
+        display: inline-block;
+        margin-right: 10px;
+        padding: 8px 15px;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.2s;
+        width: 50px;
+        height: 35px;
+
+        &:hover {
+            // Use the respective variable in the darken function
+            background-color: darken($color: $blue, $amount: 10%); // for links, as an example
+        }
+    }
+
+    a {
+        background-color: $blue;
+        color: $white;
+
+        &:hover {
+            background-color: darken($color: $blue, $amount: 10%);
+        }
+    }
+
+    button {
+        background-color: $pink;
+        color: $white;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+            background-color: darken($color: $pink, $amount: 10%);
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+}

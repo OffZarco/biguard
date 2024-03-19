@@ -1,0 +1,104 @@
+#header {
+    display: block;
+
+    .intro {
+        display: table;
+        position: relative;
+        background: url('/public/images/SINGLE-bg.jpg');
+        background-position: center center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        -webkit-background-size: cover;
+        background-size: cover;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .overlay {
+        background: rgba(0, 0, 0, 0.65);
+
+        .intro-text {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            text-align: center;
+
+            .title {
+                font-family: "Oswald", sans-serif;
+                line-height: 4em;
+
+                h1 {
+                    color: $white;
+                    font-size: 2.8em;
+                    font-weight: 400;
+                    text-transform: capitalize;
+                }
+
+                h2 {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: $white;
+                    font-size: 3em;
+                    font-weight: bold;
+
+                    img {
+                        margin: auto 5px;
+                        width: 60px;
+                    }
+                }
+            }
+
+            .contact-text {
+                line-height: 3em;
+
+                p {
+                    font-style: italic;
+                    color: $white;
+                    font-size: 20px;
+                    font-weight: 400;
+                    margin-top: 100px;
+                    margin-bottom: 10px;
+                }
+
+                a {
+                    position: relative;
+                    display: block;
+                    font-size: 26px;
+                    color: $white;
+                    border: solid 2px $white;
+                    padding: 8px 40px;
+                    text-decoration: none;
+                    transition: all .2s ease-in;
+
+                    span {
+                        position: relative;
+                        z-index: 2;
+                    }
+
+                    &:hover {
+                        color: $black;
+                    }
+
+                    &::after {
+                        position: absolute;
+                        content: "";
+                        top: 0;
+                        left: 0;
+                        background: $white;
+                        width: 0;
+                        height: 100%;
+                        transition: all .3s ease-out;
+                    }
+
+                    &:hover::after {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

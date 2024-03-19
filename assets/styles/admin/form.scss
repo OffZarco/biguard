@@ -1,0 +1,45 @@
+.form {
+    margin: 0 auto;
+
+    .formWidget {
+        // Symfony génère généralement des éléments avec la classe .form-group
+        margin-bottom: 20px;
+
+        label {
+            display: none;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        textarea {
+            width: 100%;
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            resize: vertical;
+
+            &:focus {
+                outline: none;
+                border-color: $blue;
+                box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+            }
+        }
+    }
+
+    button.btn {
+        padding: 10px 15px;
+        background-color: $blue;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: darken($blue, 5%);
+        }
+    }
+}
