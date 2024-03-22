@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Questions
+{% endblock %}
+
+{% block body %}
+	<section class="crud">
+		<h1>Edit Questions</h1>
+
+		{{ include('admin/questions/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+		<a href="{{ path('app_admin_questions_index') }}"><i class="fa-solid fa-chevron-left"></i> Retour</a>
+	</section>
+{% endblock %}
