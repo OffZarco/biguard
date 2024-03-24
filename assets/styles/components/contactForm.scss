@@ -1,0 +1,68 @@
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    border: 1px solid $black;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  
+    label {
+      display: block;
+      margin-bottom: .5rem;
+    }
+  
+    input[type='text'],
+    input[type='email'],
+    select,
+    textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 1rem;
+      border: 1px solid $black;
+      border-radius: 4px;
+  
+      &:focus {
+        border-color: darken($black, 10%);
+        outline: none;
+      }
+    }
+  
+    textarea {
+      height: 100px;
+    }
+  
+    input[type='file'] {
+      border: none;
+    }
+  
+    button[type='submit'] {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      color: $white;
+      background-color: $black;
+      cursor: pointer;
+  
+      &:hover {
+        background-color: darken($black, 10%);
+      }
+    }
+  }
+  
+  // Styles pour les messages d'erreur, si besoin
+  .error-message {
+    color: red;
+    font-size: 0.875rem;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  // Style pour un champ de formulaire avec erreur
+  .form-field-error {
+    border: 1px solid red;
+  
+    &:focus {
+      border-color: darken(red, 10%);
+    }
+  }
