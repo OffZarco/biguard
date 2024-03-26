@@ -2,8 +2,9 @@
 
 namespace App\Entity;
 
-use App\Repository\ContactFormRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ContactFormRepository;
+use Symfony\Component\Validator\Constraints\Range;
 
 #[ORM\Entity(repositoryClass: ContactFormRepository::class)]
 class ContactForm
@@ -17,13 +18,7 @@ class ContactForm
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $age = null;
-
-    #[ORM\Column(length: 255)]
     private ?string $ville = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $content = null;
 
     #[ORM\Column(length: 255)]
     private ?string $typePhone = null;
@@ -34,20 +29,27 @@ class ContactForm
     #[ORM\Column(length: 255)]
     private ?string $hoursDay = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $englishLevel = null;
+    // #[ORM\Column(length: 255)]
+    // private ?string $photo = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $photo = null;
+    // #[ORM\Column(length: 255)]
+    // private ?string $socialNetwork = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $socialNetwork = null;
-
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, unique: true)]
     private ?string $email = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, unique: true)]
     private ?string $instagram = null;
+
+    #[ORM\Column]
+    #[Range(
+        min: 18,
+        notInRangeMessage: 'Vous devez être majeur.'
+    )]
+    private ?int $age = null;
+
+    #[ORM\Column]
+    private array $content = [];
 
     public function getId(): ?int
     {
@@ -66,18 +68,6 @@ class ContactForm
         return $this;
     }
 
-    public function getAge(): ?string
-    {
-        return $this->age;
-    }
-
-    public function setAge(string $age): static
-    {
-        $this->age = $age;
-
-        return $this;
-    }
-
     public function getVille(): ?string
     {
         return $this->ville;
@@ -86,18 +76,6 @@ class ContactForm
     public function setVille(string $ville): static
     {
         $this->ville = $ville;
-
-        return $this;
-    }
-
-    public function getContent(): ?string
-    {
-        return $this->content;
-    }
-
-    public function setContent(string $content): static
-    {
-        $this->content = $content;
 
         return $this;
     }
@@ -138,41 +116,29 @@ class ContactForm
         return $this;
     }
 
-    public function getEnglishLevel(): ?string
-    {
-        return $this->englishLevel;
-    }
+    // public function getPhoto(): ?string
+    // {
+    //     return $this->photo;
+    // }
 
-    public function setEnglishLevel(string $englishLevel): static
-    {
-        $this->englishLevel = $englishLevel;
+    // public function setPhoto(string $photo): static
+    // {
+    //     $this->photo = $photo;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
-    public function getPhoto(): ?string
-    {
-        return $this->photo;
-    }
+    // public function getSocialNetwork(): ?string
+    // {
+    //     return $this->socialNetwork;
+    // }
 
-    public function setPhoto(string $photo): static
-    {
-        $this->photo = $photo;
+    // public function setSocialNetwork(string $socialNetwork): static
+    // {
+    //     $this->socialNetwork = $socialNetwork;
 
-        return $this;
-    }
-
-    public function getSocialNetwork(): ?string
-    {
-        return $this->socialNetwork;
-    }
-
-    public function setSocialNetwork(string $socialNetwork): static
-    {
-        $this->socialNetwork = $socialNetwork;
-
-        return $this;
-    }
+    //     return $this;
+    // }
 
     public function getEmail(): ?string
     {
@@ -194,6 +160,30 @@ class ContactForm
     public function setInstagram(string $instagram): static
     {
         $this->instagram = $instagram;
+
+        return $this;
+    }
+
+    public function getAge(): ?int
+    {
+        return $this->age;
+    }
+
+    public function setAge(int $age): static
+    {
+        $this->age = $age;
+
+        return $this;
+    }
+
+    public function getContent(): array
+    {
+        return $this->content;
+    }
+
+    public function setContent(array $content): static
+    {
+        $this->content = $content;
 
         return $this;
     }

@@ -15,36 +15,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'app_home')]
-    public function index(QuestionsRepository $questionsRepository, EntreeRepository $entreeRepository, PlatsRepository $platsRepository, DessertsRepository $dessertsRepository): Response
+    public function index(QuestionsRepository $questionsRepository): Response
     {
         // Questions
         $questions = $questionsRepository->findAll();
 
-        // Entrées
-        $entrees = $entreeRepository->findAll();
-
-        // Plats
-        $plats = $platsRepository->findAll();
-
-        // Desserts
-        $desserts = $dessertsRepository->findAll();
-
-        // Images Carousel
-        $finder = new Finder();
-        $finder->files()->in($this->getParameter('kernel.project_dir') . '/public/images/gallery/');
-
-        $images = [];
-        foreach ($finder as $file) {
-            $images[] = $file->getRelativePathname();
-        }
-
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
             'questions'=>$questions,
-            'images' => $images,
-            'entrees' => $entrees,
-            'plats' => $plats,
-            'desserts' => $desserts
         ]);
     }
 }

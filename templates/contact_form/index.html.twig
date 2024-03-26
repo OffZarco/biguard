@@ -1,86 +1,147 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ContactFormController!{% endblock %}
+{% block title %}Hello ContactFormController!
+{% endblock %}
 
 {% block body %}
 	{% include "partials/navbarFixed.html.twig" %}
-    <main>
-        <section class="contact-form">
-            {{ form_start(contact_form) }}
-            <span>Postulez maintenant</span>
+	<main>
+		<section class="contact-form">
+			{{ form_start(contact_form, {'attr': {'id': 'formulaire'}}) }}
+			<span>Postulez maintenant</span>
 
-            <div class="form-row">
-                <div class="form-group marg-row">
-                    {{ form_label(contact_form.name) }}
-                    {{ form_widget(contact_form.name) }}
-                    {{ form_errors(contact_form.name) }}
-                </div>
-                
-                <div class="form-group">
-                    {{ form_label(contact_form.age) }}
-                    {{ form_widget(contact_form.age) }}
-                    {{ form_errors(contact_form.age) }}
-                </div>
-            </div>
+			<div class="form-row">
+				<div class="form-group marg-row">
+					{{ form_label(contact_form.name) }}
+					{{ form_widget(contact_form.name) }}
+					{% if contact_form.name.vars.errors %}
+						<div class="error">
+							{{ form_errors(contact_form.name) }}
+						</div>
+					{% endif %}
 
-            <div class="form-group">
-                {{ form_label(contact_form.ville) }}
-                {{ form_widget(contact_form.ville) }}
-                {{ form_errors(contact_form.ville) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(contact_form.typePhone) }}
-                {{ form_widget(contact_form.typePhone) }}
-                {{ form_errors(contact_form.typePhone) }}
-            </div>
+				</div>
+
+				<div class="form-group">
+					{{ form_label(contact_form.age) }}
+					{{ form_widget(contact_form.age) }}
+					{% if contact_form.age.vars.errors %}
+						<div class="error">
+							{{ form_errors(contact_form.age) }}
+						</div>
+					{% endif %}
+
+				</div>
+			</div>
+
+			<div class="form-group">
+				{{ form_label(contact_form.ville) }}
+				{{ form_widget(contact_form.ville) }}
+				{% if contact_form.ville.vars.errors %}
+					<div class="error">
+						{{ form_errors(contact_form.ville) }}
+					</div>
+				{% endif %}
+
+			</div>
+			<div class="form-group">
+				{{ form_label(contact_form.typePhone) }}
+				{{ form_widget(contact_form.typePhone) }}
+				{% if contact_form.typePhone.vars.errors %}
+					<div class="error">
+						{{ form_errors(contact_form.typePhone) }}
+					</div>
+				{% endif %}
+
+			</div>
 
 
-            <div class="form-group">
-                {{ form_label(contact_form.email) }}
-                {{ form_widget(contact_form.email) }}
-                {{ form_errors(contact_form.email) }}
-            </div>
-            
-            
-            
-            <div class="form-group">
-                {{ form_label(contact_form.content) }}
-                {% for child in contact_form.content %}
-                <div class="checkbox">
-                    {{ form_widget(child, {'attr': {'class': 'form-content'}}) }}
-                    {{ form_label(child) }}
-                </div>
-                {% endfor %}
-                    {{ form_errors(contact_form.content) }}
-            </div>
-            
-            <div class="form-group">
-                {{ form_label(contact_form.onlyfanAccount) }}
-                {% for child in contact_form.onlyfanAccount %}
-                <div class="checkbox">
-                    {{ form_widget(child) }}
-                    {{ form_label(child) }}
-                </div>
-                {% endfor %}
-                {{ form_errors(contact_form.onlyfanAccount) }}
-            </div>
-            
-            <div class="form-group">
-                {{ form_label(contact_form.instagram) }}
-                {{ form_widget(contact_form.instagram) }}
-                {{ form_errors(contact_form.instagram) }}
-            </div>
-            
-            {{ form_widget(contact_form.submit) }}
-            
-            {{ form_end(contact_form) }}
-        </section>
+			<div class="form-group">
+				{{ form_label(contact_form.email) }}
+				{{ form_widget(contact_form.email, {'attr': {'id': 'email'}}) }}
+				<div class="error" id="errorEmail"></div>
+				<!-- Pour les erreurs de validation côté client -->
+				{% if contact_form.email.vars.errors %}
+					<div class="error">
+						{{ form_errors(contact_form.email) }}
+					</div>
+				{% endif %}
+			</div>
 
-    </main>
 
-    {% include "partials/footer.html.twig" %}
+			<div class="form-group">
+				{{ form_label(contact_form.content) }}
+				{% for child in contact_form.content %}
+					<div class="checkbox">
+						{{ form_widget(child, {'attr': {'class': 'form-content'}}) }}
+						{{ form_label(child) }}
+					</div>
+				{% endfor %}
+				{% if contact_form.content.vars.errors %}
+					<div class="error">
+						{{ form_errors(contact_form.content) }}
+					</div>
+				{% endif %}
 
-    {% block javascript %}
-	    <script src="{{ asset('js/contact.js') }}"></script>
-    {% endblock %}
+			</div>
+
+			<div class="form-group">
+				{{ form_label(contact_form.hoursDay) }}
+				{% for child in contact_form.hoursDay %}
+					<div class="checkbox">
+						{{ form_widget(child) }}
+						{{ form_label(child) }}
+					</div>
+				{% endfor %}
+				{% if contact_form.hoursDay.vars.errors %}
+					<div class="error">
+						{{ form_errors(contact_form.hoursDay) }}
+					</div>
+				{% endif %}
+
+			</div>
+
+			<div class="form-group">
+				{{ form_label(contact_form.onlyfanAccount) }}
+				{% for child in contact_form.onlyfanAccount %}
+					<div class="checkbox">
+						{{ form_widget(child) }}
+						{{ form_label(child) }}
+					</div>
+				{% endfor %}
+				{% if contact_form.onlyfanAccount.vars.errors %}
+					<div class="error">
+						{{ form_errors(contact_form.onlyfanAccount) }}
+					</div>
+				{% endif %}
+
+			</div>
+
+			<div class="form-group">
+				{{ form_label(contact_form.instagram) }}
+				{{ form_widget(contact_form.instagram, {'attr': {'id': 'instagram'}}) }}
+				<div class="error" id="errorInstagram"></div>
+				<!-- Pour les erreurs de validation côté client -->
+				{% if contact_form.instagram.vars.errors %}
+					<div class="error">
+						{{ form_errors(contact_form.instagram) }}
+						<!-- Pour les erreurs côté serveur -->
+					</div>
+				{% endif %}
+			</div>
+
+
+			{{ form_widget(contact_form.submit) }}
+
+			{{ form_end(contact_form) }}
+		</section>
+
+	</main>
+
+	{% include "partials/footer.html.twig" %}
+
+	{% block javascript %}
+		<script src="{{ asset('js/contact.js') }}"></script>
+        <script src="{{ asset('js/errorForm.js') }}"></script>
+	{% endblock %}
 {% endblock %}
