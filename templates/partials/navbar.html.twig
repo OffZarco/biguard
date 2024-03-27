@@ -1,9 +1,4 @@
 <nav class="navbar">
-	<div class="hamburger">
-		<div class="bars1"></div>
-		<div class="bars2"></div>
-		<div class="bars3"></div>
-	</div>
     <a href="#header" class="logo">Biguard <span>agency</span></a>
 		<ul class="nav-links" id="link">
 			<a class="btn active" href="#header">Accueil</a>
@@ -13,6 +8,11 @@
     <div class="button-nav">
         <a href="mailto:contact@biguard.fr?"><span>Nous contacter</span></a>
     </div>
+	<div class="hamburger" onclick="this.classList.toggle('active');">
+		<div class="bars1"></div>
+		<div class="bars2"></div>
+		<div class="bars3"></div>
+	</div>
 </nav>
 
 {% block javascript %}
